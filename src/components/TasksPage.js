@@ -1,5 +1,8 @@
-import React, { Component } from 'react';
-import TaskList from './TaskList';
+import React, { Component } from 'react'
+import TaskList from './TaskList'
+
+const TASK_STATUSES = ['Unstarted', 'In Progress', 'Completed']
+
 class TasksPage extends Component {
   constructor(props) {
     super(props)
@@ -11,7 +14,6 @@ class TasksPage extends Component {
     }
   }
   onTitleChange = (e) => {
-    2
     this.setState({ title: e.target.value })
   }
   onDescriptionChange = (e) => {
@@ -26,6 +28,7 @@ class TasksPage extends Component {
   }
   onCreateTask = (e) => {
     e.preventDefault()
+    console.log("does it even hit here?")
     this.props.onCreateTask({
 
       title: this.state.title,
@@ -34,7 +37,7 @@ class TasksPage extends Component {
     this.resetForm()
   }
   toggleForm = () => {
-    this.setState({ showNewCardForm: !this.state.showNewCardForm }) ;
+    this.setState({ showNewCardForm: !this.state.showNewCardForm })
   }
   renderTaskLists() {
     const { tasks } = this.props
