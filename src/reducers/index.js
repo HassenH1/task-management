@@ -1,4 +1,4 @@
-import { uniqueId, CREATE_TASK } from '../actions'
+import { uniqueId } from '../actions'
 
 const mockTasks = [
   {
@@ -16,11 +16,8 @@ const mockTasks = [
 ]
 
 export default function tasks(state = { tasks: mockTasks }, action) {
-  switch(action.type){
-    case CREATE_TASK:
-      console.log(state.tasks)
-      break;
-    default:
-      return state
+  if(action.type === 'CREATE_TASK'){
+    return{ tasks: state.tasks.concat(action.payload)}
   }
+  return state
 }
