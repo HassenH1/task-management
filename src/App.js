@@ -9,10 +9,12 @@ class App extends Component {
     this.props.dispatch(createTask({ title, description }))
   }
 
+
   render() {
+    console.log(this.props)
     return (
       <div className="main-­content">
-        <TasksPage tasks={this.props.tasks} />
+        <TasksPage tasks={this.props.tasks} onCreateTask={this.onCreateTask}/>
       </div>
     )
   }
